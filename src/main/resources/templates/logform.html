@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Backend Ninja - Add/Modify Log</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Log Form</h1>
+            <br>
+            <form action="#" th:action="@{/logs/addLog}" th:object="${logModel}" method="post">
+                <input type="hidden" th:field="*{id}" th:value="*{id}">
+                Date: <input type="date" th:field="*{date}" th:value="*{date}" class="form-control" required>
+                <br>
+                Details: <input type="text" th:field="*{details}" th:value="*{details}" class="form-control">
+                <br>
+                Username: <input type="text" th:field="*{username}" th:value="*{username}" class="form-control">
+                <br>
+                URL: <input type="text" th:field="*{url}" th:value="*{url}" class="form-control">
+                <br><br>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Accept
+                </button>
+            </form>
+            <a href="#" th:href="@{/logs/cancel}">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+                </button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

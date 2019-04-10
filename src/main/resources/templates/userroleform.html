@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Backend Ninja - Add/Modify User Role</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>User Role Form</h1>
+            <br>
+            <form action="#" th:action="@{/userRoles/addUserRole}" th:object="${userRoleModel}" method="post">
+                <input type="hidden" th:field="*{userRoleId}" th:value="${userRoleId}" class="form-control">
+                User:
+                <select class="form-control" th:field="*{user}" required>
+                    <option th:each="Item : ${users}" th:value="${Item.username}" th:text="${Item.username}"></option>
+                </select>
+                <br>
+                Role: <input type="text" th:field="*{role}" th:value="${role}" class="form-control">
+                <br>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Accept
+                </button>
+            </form>
+
+            <a href="#" th:href="@{/userRoles/cancel}">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+                </button>
+            </a>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Backend Ninja - Add/Modify User</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="#" th:href="@{/css/style.css}" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>User Form</h1>
+            <br>
+            <form action="#" th:action="@{/users/addUser}" th:object="${userModel}" method="post">
+                Username:
+                <input type="text" class="form-control" th:field="*{username}" th:value="${username}" th:if="${!edit}">
+                <input type="text" class="form-control" th:field="*{username}" th:value="${username}" th:if="${edit}" readonly>
+                <br>
+                Password:<input type="text" class="form-control" th:field="*{password}" th:value="${password}" maxlength="60">
+                <br>
+                Enabled:<input type="checkbox" class="checkbox" th:field="*{enabled}" th:value="${enabled}"><br>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Accept
+                </button>
+            </form>
+            <a href="#" th:href="@{/users/cancel}">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancel
+                </button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

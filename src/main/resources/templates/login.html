@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Backend Ninja - Login</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <form th:action="@{/login}" method="post">
+                <h2 class="form-heading">Log in</h2>
+                <span th:text="${message}"></span>
+                <span th:text="${error}"></span>
+                <div><label> User Name : <input type="text" name="username" placeholder="USERNAME" autofocus="true" class="form-control"/> </label></div>
+                <div><label> Password: <input type="password" name="password" placeholder="PASSWORD" class="form-control"/> </label></div>
+                <div><input type="submit" value="Log In" class="btn btn-lg btn-primary"/></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
